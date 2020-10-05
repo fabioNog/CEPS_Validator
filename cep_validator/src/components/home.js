@@ -14,12 +14,14 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://github.com/fabioNog" target="BLANCK">
+        Fabio Nogueira
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -30,10 +32,11 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
-    background: "linear-gradient( #e3170a,#64e6ce);" 
+    background: "linear-gradient( #0000cd,#64f8ca);" 
   },
   appBarText:{
-    color: '#FBFBFF'
+    color: 'white',
+    fontFamily: 'Arial, Helvetica, sans-serif'
   },
   appBarToolbar:{
     margin: ' auto',    
@@ -71,24 +74,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Cadastre o Endereço', 'Rever Cadastro'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <AddressForm />;
     case 1:
-      return <PaymentForm />;
-    case 2:
       return <Review />;
     default:
       throw new Error('Unknown step');
   }
 }
 
-export default function Checkout() {
+ function Register()  {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [cityStep, setCityStep] = React.useState({module});
+
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -111,7 +114,7 @@ export default function Checkout() {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Cadastro de Cep
+            Cadastro de Endereços
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
@@ -158,3 +161,5 @@ export default function Checkout() {
     </React.Fragment>
   );
 }
+
+export default Register;

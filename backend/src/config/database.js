@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
-module.exports = mongoose.connect('mongodb://localhost/vouncher', {
+module.exports = mongoose.connect('mongodb://localhost/ceps', {
     useMongoClient: true,
     /* other options */
   })

@@ -1,6 +1,9 @@
 
 import React from 'react';
 
+import { Provider } from 'react-redux';
+import store from './cepCycle/cepReducer';
+
 
 import {
   Routes,
@@ -11,8 +14,10 @@ import Home from './components/home'
 
 export default function MainRoutes(){
   return(
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Provider>
   )
 }

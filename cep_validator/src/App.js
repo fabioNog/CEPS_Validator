@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Provider } from 'react-redux';
+import store from './main/reducers';
 
 import {
   BrowserRouter as Router,
@@ -11,9 +12,9 @@ import Routes from './routes'
 
 function App() {
   return (
-    <Router>
-      <Routes/>
-  </Router>
+      <Router>
+        <Routes/>
+      </Router>
   );
 }
 

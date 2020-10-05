@@ -1,23 +1,7 @@
 const restful = require('node-restful')
 const mongoose = restful.mongoose
 
-// {
-//     "_id" : "22LKAfhBsGW8jfJPn",
-//     "start" : ISODate("2017-04-20T00:00:00.000Z"), //Data de início 
-//     "end" : ISODate("2018-01-01T00:00:00.000Z"), //Data final
-//     "unlimited" : true, //Acesso ilimitado
-//     "justNew" : true,  //Apenas novos usuários/
-//     "services" : [], //Serviços que se pode usar ‘Unhas’, ‘Depilação’
-//     "code" : "7c10tzern", //Código que deve ser utilizado
-//     "usedBy" : [], //Quem já usou ‘Vinicius’, ‘Mateus’,
-//     "campaign" : "member get member", //Dia dos pais
-//     "locations" : [], //Em quais cidades pode ser utilizado, ‘São Paulo’, ‘Rio de Janeiro’
-//     "usedTimes" : 0, //Quantidade de vezes utilizado
-//     "timesByUser" : 1, //Quantidade de vezes que pode ser utilizado por um cliente
-//     "type" : "P", //P para porcentagem e V para valor fixo
-//     "value" : 25,
-//     "maxTimes" : 0 //Máximo de utilizações
-// }
+
 
 const ServiceSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -31,7 +15,7 @@ const LocationSchema = new mongoose.Schema({
     name: { type: String, required: true },
 })
 
-const VauncherSchema = new mongoose.Schema({
+const CepSchema = new mongoose.Schema({
    
     start_day: { type: Number, min: 1, max: 31, required: true },
     start_month: { type: Number, min: 1, max: 12, required: true },
@@ -46,11 +30,6 @@ const VauncherSchema = new mongoose.Schema({
     users : [UsedBySchema],
     // // campaign : { type: Boolean, required: true }, //se for Dia dos pais então true
     locates : [LocationSchema], //Em quais cidades pode ser utilizado, ‘São Paulo’, ‘Rio de Janeiro’
-    // usedTimes : { type: Number, min: 0, required: [true, 'Informe o quantidade de vezes usada!'] }, //Quantidade de vezes utilizado
-    // timesByUser : { type: Number, min: 1, required: [true, 'Informe o quantidade de vezes que podera ser usatilizado por cliente!'] }, //Quantidade de vezes que pode ser utilizado por um cliente
-    // type : "P", //P para porcentagem e V para valor fixo
-    // value : { type: Number, min: 0, required: [true, 'Informe o valor do débito!'] },
-    // maxTimes: { type: Number, min: 0, required: [true, 'Informe o valor do débito!'] }, //Máximo de utilizações
 });
 
 
@@ -74,4 +53,4 @@ const VauncherSchema = new mongoose.Schema({
 //     debts: [debtSchema]
 // })
 
-module.exports = restful.model('Vouchers2', VauncherSchema)
+module.exports = restful.model('cep', CepSchema)
