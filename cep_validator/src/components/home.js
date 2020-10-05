@@ -90,8 +90,7 @@ function getStepContent(step) {
  function Register()  {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [cityStep, setCityStep] = React.useState({module});
-
+  
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
