@@ -30,6 +30,13 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
+    background: "linear-gradient( #e3170a,#64e6ce);" 
+  },
+  appBarText:{
+    color: '#FBFBFF'
+  },
+  appBarToolbar:{
+    margin: ' auto',    
   },
   layout: {
     width: 'auto',
@@ -95,16 +102,16 @@ export default function Checkout() {
     <React.Fragment>
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Cep Validator
+        <Toolbar className={classes.appBarToolbar} >
+          <Typography variant="h6" className={classes.appBarText} noWrap>
+            CEP VALIDATOR
           </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Cadastro de Cep
           </Typography>
           <Stepper activeStep={activeStep} className={classes.stepper}>
             {steps.map((label) => (
