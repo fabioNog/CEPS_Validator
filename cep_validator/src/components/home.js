@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient( #0000cd,#64f8ca);" 
   },
   appBarText:{
-    color: 'white',
+    color: 'black',
     fontFamily: 'Arial, Helvetica, sans-serif'
   },
   appBarToolbar:{

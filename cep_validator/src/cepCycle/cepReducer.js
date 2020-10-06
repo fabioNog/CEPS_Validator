@@ -1,5 +1,7 @@
 import { createStore } from 'redux';
 
+import {combineReducers} from 'redux' 
+
 
 const INITIAL_STATE = {
     activeLesson: [],
@@ -25,7 +27,6 @@ const INITIAL_STATE = {
 }
 
 function reducer(state = INITIAL_STATE, action) {
-
     if(action.type === "TOGGLE_LESSON"){
         return {
             ...state, 
@@ -38,5 +39,9 @@ function reducer(state = INITIAL_STATE, action) {
     
 }
 
+const store = combineReducers({
+    field: () => ({value: 'opa'})
+ })
 
-export default reducer;
+
+export default store;

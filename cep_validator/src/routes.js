@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { Provider } from 'react-redux';
-import store from './cepCycle/cepReducer';
+/* import store from './cepCycle/cepReducer'; */
 
 import {combineReducers, createStore} from 'redux' 
 
@@ -13,6 +13,11 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/home'
+
+const store = combineReducers({
+  field: () => ({value: 'opa'})
+})
+
 
 export default function MainRoutes(){
   return(
