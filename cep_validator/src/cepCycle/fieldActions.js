@@ -1,3 +1,5 @@
-export function chanveValue(e){
+function changeValue(e){
     console.log('change')
 }
+
+export default changeValue;
