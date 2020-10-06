@@ -9,13 +9,13 @@ import Grid from '@material-ui/core/Grid';
 import {connect} from 'react-redux';
 
 
-const products = [
+/* const products = [
   { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
   { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
   { name: 'Product 3', desc: 'Something else', price: '$6.51' },
   { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
   { name: 'Shipping', desc: '', price: 'Free' },
-];
+]; */
 const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
 
 
@@ -42,10 +42,10 @@ class Review extends Component{
     return(      
       <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        {this.props.value}
+        Confirma?
       </Typography>
       <List>
-        {products.map((product) => (
+        {this.props.reducer.map((product) => (
           <ListItem className={classes.listItem} key={product.name}>
             <ListItemText primary={product.name} secondary={product.desc} />
             <Typography variant="body2">{product.price}</Typography>
@@ -74,7 +74,7 @@ class Review extends Component{
 
 function mapStateToProps(state){
   return{
-    value: state.field.value
+    reducer: state.modules
   }
 }
 

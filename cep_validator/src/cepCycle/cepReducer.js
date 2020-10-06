@@ -26,22 +26,14 @@ const INITIAL_STATE = {
     ]
 }
 
-function reducer(state = INITIAL_STATE, action) {
-    if(action.type === "TOGGLE_LESSON"){
+const  reducer = (state = INITIAL_STATE, action) => {
+   /*  if(action.type === "TOGGLE_LESSON"){ */
         return {
             ...state, 
             activeLesson: action.lesson, 
             activeModule: action.module  
         }
-    }
-
-    return state;
-    
-}
-
-const store = combineReducers({
-    field: () => ({value: 'opa'})
- })
+};
 
 
-export default store;
+export default reducer;
