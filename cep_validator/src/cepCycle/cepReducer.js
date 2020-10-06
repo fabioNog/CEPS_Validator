@@ -39,7 +39,4 @@ function reducer(state = INITIAL_STATE, action) {
 }
 
 
-const store = createStore(reducer);
-
-
-export default store;
+export default reducer;
