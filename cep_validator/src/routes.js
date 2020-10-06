@@ -4,7 +4,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './cepCycle/cepReducer';
 
-import {combineReducers, createStore} from 'redux' 
+import {createStore} from 'redux' 
+/* import {combineReducers, createStore} from 'redux'  */
 
 
 import {

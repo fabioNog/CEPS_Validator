@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
 
 
 import { connect } from 'react-redux';
 
-
-function toogleLesson(module, lesson) {
-  return {
-    type: 'TOGGLE_LESSON',
-    module,
-    lesson
+  /* 
+  function toogleLesson(module, lesson) {
+    return {
+      type: 'TOGGLE_LESSON',
+      module,
+      lesson
+    }
   }
-}
-
+ */
 function AddressForm (){
 
   const [cityStep, setCityStep] = React.useState('');
@@ -31,7 +30,7 @@ function AddressForm (){
   const handleInputCepChange = e => {    
     const auxValues = { ...cepStep };
     auxValues[e.target.cepStep] = e.target.value;
-    setCityStep(auxValues);      
+    setCepStep(auxValues);      
   }
     return (
       <div>

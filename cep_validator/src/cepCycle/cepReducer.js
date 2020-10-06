@@ -1,6 +1,3 @@
-import { createStore } from 'redux';
-
-import {combineReducers} from 'redux' 
 
 
 const INITIAL_STATE = {
