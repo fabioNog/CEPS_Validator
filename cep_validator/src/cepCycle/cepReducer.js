@@ -8,20 +8,10 @@ const INITIAL_STATE = {
     activeModule: [],
     modules: [
         {
-            id: 1,
-            title: "Testando Redux",
-            lessons: [
-                { id: 1, title: "Primeira Aula" },
-                { id: 2, title: "Segunda Aula" },
-            ]
-        },
-        {
-            id: 2,
-            title: "Testando Laravel",
-            lessons: [
-                { id: 1, title: "Primeira Aula" },
-                { id: 2, title: "Segunda Aula" },
-            ]
+            id: 1,            
+            cidade: "Alguma Cidade",
+            cep: "Algum Cep"
+
         },
     ]
 }
