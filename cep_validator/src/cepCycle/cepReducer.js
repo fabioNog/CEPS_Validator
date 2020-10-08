@@ -4,34 +4,19 @@ import {combineReducers} from 'redux'
 
 
 const INITIAL_STATE = {
-    activeLesson: [],
-    activeModule: [],
-    modules: [
+    modules: 
         {
             id: 1,
-            title: "Testando Redux",
-            lessons: [
-                { id: 1, title: "Primeira Aula" },
-                { id: 2, title: "Segunda Aula" },
-            ]
-        },
-        {
-            id: 2,
-            title: "Testando Laravel",
-            lessons: [
-                { id: 1, title: "Primeira Aula" },
-                { id: 2, title: "Segunda Aula" },
-            ]
-        },
-    ]
+            cidade: "Testando Redux",
+            cep: "Testando Cep"
+        }
+
 }
 
 function reducer(state = INITIAL_STATE, action) {
     if(action.type === "TOGGLE_LESSON"){
         return {
             ...state, 
-            activeLesson: action.lesson, 
-            activeModule: action.module  
         }
     }
 
@@ -39,9 +24,9 @@ function reducer(state = INITIAL_STATE, action) {
     
 }
 
-const store = combineReducers({
-    field: () => ({value: 'opa'})
- })
+const store = combineReducers(
+  reducer
+ )
 
 
 export default store;

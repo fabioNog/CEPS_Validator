@@ -16,40 +16,31 @@ function toogleLesson(module, lesson) {
   }
 }
 
-function AddressForm (){
-
-  const [cityStep, setCityStep] = React.useState('');
-  const [cepStep, setCepStep] = React.useState('');
-
-
-  const handleInputCityChange = e => {    
-    const auxValues = { ...cityStep };
-    auxValues[e.target.cityStep] = e.target.value;
-    setCityStep(auxValues);      
+class AddressForm extends Component{
+  constructor(props){
+    super(props)
   }
 
-  const handleInputCepChange = e => {    
-    const auxValues = { ...cepStep };
-    auxValues[e.target.cepStep] = e.target.value;
-    setCityStep(auxValues);      
-  }
+  render(){
     return (
       <div>
         <Typography variant="h6" gutterBottom>
           Coloque seus Dados
         </Typography>
 
+                    
+
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="cidade"
-              name="cidade"
-              label="Cidade"
-              fullWidth
-              autoComplete="cidade-level2"
-              onChange={handleInputCityChange}
-            />
+            <div >
+              <TextField
+                required
+                id="cidade"
+                name="cidade"
+                label={this.props.value}
+                fullWidth                              
+                />
+            </div>              
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -59,12 +50,20 @@ function AddressForm (){
               label="Cep"
               fullWidth
               autoComplete="shipping postal-code"
-              onChange={handleInputCepChange}
+            
             />
           </Grid>
         </Grid>
       </div>
     )
+  }
 }
 
-export default connect(state => ({ modules: state.modules }))(AddressForm);
+function mapStateToProps(state){
+  return{
+    value: state.field.value
+  } 
+}
+
+
+export default connect(mapStateToProps)(AddressForm);

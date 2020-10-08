@@ -2,7 +2,9 @@
 import React from 'react';
 
 import { Provider } from 'react-redux';
-/* import store from './cepCycle/cepReducer'; */
+/* import { store }  from './cepCycle/cepReducer'; */
+
+
 
 import {combineReducers, createStore} from 'redux' 
 
@@ -13,17 +15,19 @@ import {
 } from 'react-router-dom';
 
 import Home from './components/home'
+import Login from './components/login'
 
-const store = combineReducers({
+
+const reducer = combineReducers({
   field: () => ({value: 'opa'})
 })
 
-
 export default function MainRoutes(){
   return(
-    <Provider store={createStore(store)}>
+    <Provider store={createStore(reducer )}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login/>} />
       </Routes>
     </Provider>
   )

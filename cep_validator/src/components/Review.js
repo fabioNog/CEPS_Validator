@@ -36,13 +36,16 @@ class Review extends Component{
       title: {
         marginTop: theme.spacing(2),
       },
+      Typography: {
+        margin: ' auto',
+      }
     }));
 
 
     return(      
       <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        {this.props.value}
+      <Typography variant="h6" gutterBottom className={classes.Typography}>
+        Confirme seu Endereço
       </Typography>
       <List>
         {products.map((product) => (
@@ -74,8 +77,8 @@ class Review extends Component{
 
 function mapStateToProps(state){
   return{
-    value: state.field.value
+    state: state.modules
   }
 }
 
-export default connect(mapStateToProps)(Review);
+export default connect(state => ({modules: state.modules}))(Review);
