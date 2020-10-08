@@ -18,6 +18,7 @@ import {
 
 import Home from './components/home'
 import Login from './components/login'
+import List from './components/list'
 
 
 const reducers = combineReducers({
@@ -35,6 +36,7 @@ export default function MainRoutes(){
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login/>} />
+        <Route path="list" element={<List/>} />
       </Routes>
     </Provider>
   )
