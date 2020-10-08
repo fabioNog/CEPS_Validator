@@ -2,9 +2,7 @@
 import React from 'react';
 
 import { Provider } from 'react-redux';
-/* import { store }  from './cepCycle/cepReducer'; */
-
-
+import store from './cepCycle/cepReducer';
 
 import {combineReducers, createStore} from 'redux' 
 
@@ -20,7 +18,7 @@ import Login from './components/login'
 
 const reducer = combineReducers({
   field: () => ({value: 'opa'})
-})
+}) 
 
 export default function MainRoutes(){
   return(

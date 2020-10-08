@@ -1,6 +1,3 @@
-import { createStore } from 'redux';
-
-import {combineReducers} from 'redux' 
 
 
 const INITIAL_STATE = {
@@ -13,20 +10,12 @@ const INITIAL_STATE = {
 
 }
 
-function reducer(state = INITIAL_STATE, action) {
-    if(action.type === "TOGGLE_LESSON"){
+const  reducer = (state = INITIAL_STATE, action) => {
+   /*  if(action.type === "TOGGLE_LESSON"){ */
         return {
             ...state, 
         }
-    }
-
-    return state;
-    
-}
-
-const store = combineReducers(
-  reducer
- )
+};
 
 
-export default store;
+export default reducer;

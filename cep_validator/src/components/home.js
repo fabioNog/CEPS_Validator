@@ -11,8 +11,10 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
 import Review from './Review';
+
+
+import {BindActionCreator} from 'redux';
 
 
 
@@ -32,11 +34,11 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
-    background: "linear-gradient( #0000cd,#64f8ca);" 
+    backgroundColor: "#0000" 
   },
   appBarText:{
-    color: 'black',
-    fontFamily: 'Arial, Helvetica, sans-serif'
+    color: '#02010A',
+    fontFamily: 'Times New Roman Georgia'
   },
   appBarToolbar:{
     margin: ' auto',    
