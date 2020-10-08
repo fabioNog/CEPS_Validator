@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Provider } from 'react-redux';
 import cityReducer from './cepCycle/reducers/cityReducer';
+import cepReducer from './cepCycle/reducers/cep_Reducer';
 
 import {combineReducers, createStore} from 'redux' 
 
@@ -17,7 +18,8 @@ import Login from './components/login'
 
 
 const reducer = combineReducers({
-  field: cityReducer    
+  city: cityReducer,
+  cep: cepReducer    
 }) 
 
 export default function MainRoutes(){

@@ -33,8 +33,8 @@ class Review extends Component{
         <List>
         
             <ListItem className={classes.listItem} key={module.id}>
-              <ListItemText  primary={this.props.value}/>
-              <Typography variant="body2">teste</Typography>
+              <ListItemText  primary={this.props.city}/>
+              <Typography variant="body2">{this.props.cep}</Typography>
             </ListItem>
           
         </List>
@@ -45,7 +45,8 @@ class Review extends Component{
 
 function mapStateToProps(state){
   return{
-    value: state.field.value
+    city: state.city.value,
+    cep: state.cep.value
   } 
 }
 export default connect(mapStateToProps)(Review);

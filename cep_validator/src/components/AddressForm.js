@@ -6,7 +6,8 @@ import TextField from '@material-ui/core/TextField';
 
 import { connect } from 'react-redux';
 
-import changeCity from '../cepCycle/fieldActions'
+import changeCity from '../cepCycle/actions/cityActions'
+import changeCep from '../cepCycle/actions/cepActions'
 import {BindActionCreators, bindActionCreators} from 'redux'
 
   /* 
@@ -48,7 +49,7 @@ class AddressForm extends Component{
               label="Cep"
               fullWidth
               autoComplete="shipping postal-code"
-            
+              onChange ={this.props.changeCep}
             />
           </Grid>
         </Grid>
@@ -58,7 +59,7 @@ class AddressForm extends Component{
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({changeCity},dispatch)
+  return bindActionCreators({changeCity,changeCep},dispatch)
 }
 
 
