@@ -22,9 +22,13 @@ const reducer = combineReducers({
   cep: cepReducer    
 }) 
 
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = createStore(reducer,devTools)
+
 export default function MainRoutes(){
   return(
-    <Provider store={createStore(reducer )}>
+    <Provider store={store}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login/>} />
