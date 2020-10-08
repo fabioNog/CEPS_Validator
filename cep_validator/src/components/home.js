@@ -25,9 +25,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" to="https://github.com/fabioNog" target="BLANCK">
-        Fabio Nogueira
-      </Link>{' '}
+      <a color="inherit" href="https://github.com/fabioNog" target="BLANCK"></a>
+        Fabio Nogueira      
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -76,6 +75,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
+  },
+  buttonHome: {
+    marginTop: theme.spacing(3),
+    marginLeft: theme.spacing(1),
+    backgroundColor: '#0000'
   },
 }));
 
@@ -133,7 +137,7 @@ function getStepContent(step) {
                 <Typography variant="h5" gutterBottom>
                   Dados Cadastrados com Sucesso
                 </Typography>
-                <Link to="list">Home</Link>
+                <Link to="list"><Button className={classes.buttonHome}>Lista de Registros</Button></Link>
               </React.Fragment>              
             ) : (
               <React.Fragment>
@@ -141,7 +145,7 @@ function getStepContent(step) {
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>
-                      Back
+                      Voltar
                     </Button>
                   )}
                   <Button
