@@ -1,26 +1,22 @@
 {
-  "name": "Backend",
+  "name": "react-todolist",
   "version": "1.0.0",
   "description": "",
-  "main": "src/loader.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
-    "production": "pm2 start src/loader.js --name my-money-backend"
+    "start": "node index.js",
+    "server": "node index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Jay Chen",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "express-query-int": "^1.0.1",
-    "lodash": "^4.17.4",
-    "mongoose": "^4.7.0",
-    "mongoose-paginate": "^5.0.3",
-    "node-restful": "^0.2.5",
-    "pm2": "^2.1.5"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.2",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.20.0",
+    "mongoose": "^5.7.7"
   }
 }

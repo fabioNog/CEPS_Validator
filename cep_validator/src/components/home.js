@@ -17,21 +17,21 @@ import { Link } from 'react-router-dom'
 
 
 /* Import my reducers */
-import {addTodo} from '../cepCycle/actions/todoActions'
-import {bindActionCreators} from 'redux'
+import { addTodo } from '../cepCycle/actions/todoActions'
+import { bindActionCreators } from 'redux'
 
 
 
-import {BindActionCreator} from 'redux';
+import { BindActionCreator } from 'redux';
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" to="https://github.com/fabioNog" target="BLANCK">
-        Fabio Nogueira      
+        Fabio Nogueira
       </Link>
       {new Date().getFullYear()}
       {'.'}
@@ -42,14 +42,14 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
-    backgroundColor: "#0000" 
+    backgroundColor: "#0000"
   },
-  appBarText:{
+  appBarText: {
     color: '#02010A',
     fontFamily: 'Times New Roman Georgia'
   },
-  appBarToolbar:{
-    margin: ' auto',    
+  appBarToolbar: {
+    margin: ' auto',
   },
   layout: {
     width: 'auto',
@@ -102,10 +102,10 @@ function getStepContent(step) {
   }
 }
 
- function Register()  {
+function Register(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  
+
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -114,6 +114,13 @@ function getStepContent(step) {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  const onFormSubmit = e => {
+    e.preventDefault();
+    this.setState(prevState => ({ editing: !prevState.editing }));
+    this.props.updateTodo(this.props.id, this.state.text);
+  };
+
 
   return (
     <React.Fragment>
@@ -144,38 +151,38 @@ function getStepContent(step) {
                   Dados Cadastrados com Sucesso
                 </Typography>
                 <Link to="list"><Button className={classes.buttonHome}>Lista de Registros</Button></Link>
-              </React.Fragment>              
-            ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Voltar
-                    </Button>
-                  )}
-                  {activeStep !== 0 ?  (activeStep < 2 &&
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                          
-                  >
-                    {activeStep === steps.length - 1 ? 'Salvar' : 'Verificar'}
-                  </Button>)
-                  : <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleNext}
-                  className={classes.button}
-                            
-                >
-                  {activeStep === steps.length - 1 ? 'Salvar' : 'Verificar'}
-                </Button>}
-                </div>
               </React.Fragment>
-            )}
+            ) : (
+                <React.Fragment>
+                  {getStepContent(activeStep)}
+                  <div className={classes.buttons}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} className={classes.button}>
+                        Voltar
+                      </Button>
+                    )}
+                    {activeStep === steps.length - 1 ?
+                      (
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          onClick={onFormSubmit}
+                        >
+                          Salvar
+                        </Button>)
+                      :                       (
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          onClick={handleNext}
+                        >
+                          Verificar
+                        </Button>)}
+                  </div>
+                </React.Fragment>
+              )}
           </React.Fragment>
         </Paper>
         <Copyright />
@@ -185,7 +192,14 @@ function getStepContent(step) {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-   addTodo
+  addTodo
 }, dispatch)
 
-export default connect(null,mapDispatchToProps)(Register);
+function mapStateToProps(state) {
+  return {
+    city: state.city,
+    cep: state.cep
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
