@@ -1,12 +1,7 @@
-const INITIAL_STATE = { description: '', list: [] }
+import { combineReducers } from 'redux';
+import todos from './todos';
+import currTab from './currTab';
 
-export default (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-        case 'TODO_SEARCHED':
-            return { ...state, list: action.payload.data }
-        case 'TODO_CLEAR':
-            return { ...state, description: '' }
-        default:
-            return state
-    }
-}
+export default combineReducers({
+  todos,
+});

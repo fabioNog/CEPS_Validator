@@ -47,8 +47,6 @@ export default function BasicTable() {
                 {row.name}
               </TableCell>
               <TableCell component="th" scope="row">{row.calories}</TableCell>
-
-
             </TableRow>
           ))}
         </TableBody>

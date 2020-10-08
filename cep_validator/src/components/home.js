@@ -16,17 +16,23 @@ import Review from './Review';
 import { Link } from 'react-router-dom'
 
 
+/* Import my reducers */
+import {addTodo} from '../cepCycle/actions/todoActions'
+import {bindActionCreators} from 'redux'
+
+
 
 import {BindActionCreator} from 'redux';
 
-
+import {connect} from 'react-redux'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <a color="inherit" href="https://github.com/fabioNog" target="BLANCK"></a>
+      <Link color="inherit" to="https://github.com/fabioNog" target="BLANCK">
         Fabio Nogueira      
+      </Link>
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -148,14 +154,25 @@ function getStepContent(step) {
                       Voltar
                     </Button>
                   )}
+                  {activeStep !== 0 ?  (activeStep < 2 &&
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={handleNext}
                     className={classes.button}
+                          
                   >
                     {activeStep === steps.length - 1 ? 'Salvar' : 'Verificar'}
-                  </Button>
+                  </Button>)
+                  : <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  className={classes.button}
+                            
+                >
+                  {activeStep === steps.length - 1 ? 'Salvar' : 'Verificar'}
+                </Button>}
                 </div>
               </React.Fragment>
             )}
@@ -167,4 +184,8 @@ function getStepContent(step) {
   );
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => bindActionCreators({
+   addTodo
+}, dispatch)
+
+export default connect(null,mapDispatchToProps)(Register);
