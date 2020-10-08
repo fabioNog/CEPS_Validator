@@ -62,11 +62,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-function mapStateToProps(state){
-  return{
-    value: state.field.value
-  } 
-}
-
-
 export default connect(null,mapDispatchToProps)(AddressForm);

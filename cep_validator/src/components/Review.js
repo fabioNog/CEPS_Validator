@@ -33,7 +33,7 @@ class Review extends Component{
         <List>
         
             <ListItem className={classes.listItem} key={module.id}>
-              <ListItemText  primary='teste'/>
+              <ListItemText  primary={this.props.value}/>
               <Typography variant="body2">teste</Typography>
             </ListItem>
           
@@ -45,8 +45,7 @@ class Review extends Component{
 
 function mapStateToProps(state){
   return{
-    reducers: state.modules
-  }
+    value: state.field.value
+  } 
 }
-
-export default connect(state => ({modules: state.modules}))(Review);
+export default connect(mapStateToProps)(Review);
