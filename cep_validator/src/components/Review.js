@@ -26,19 +26,19 @@ class Review extends Component{
 
 
     return(      
-      <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Confirma?
-      </Typography>
-      <List>
-      
-          <ListItem className={classes.listItem} key={module.id}>
-            <ListItemText  primary='teste'/>
-            <Typography variant="body2">teste</Typography>
-          </ListItem>
-        )
-      </List>
-    </React.Fragment>
+        <React.Fragment>
+        <Typography variant="h6" gutterBottom>
+          Confirma?
+        </Typography>
+        <List>
+        
+            <ListItem className={classes.listItem} key={module.id}>
+              <ListItemText  primary='teste'/>
+              <Typography variant="body2">teste</Typography>
+            </ListItem>
+          
+        </List>
+      </React.Fragment>
     )
   }
 }

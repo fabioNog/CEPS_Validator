@@ -35,10 +35,10 @@ class AddressForm extends Component{
                 required
                 id="cidade"
                 name="cidade"
-                label={this.props.value}
-                fullWidth                              
-                />
-            
+                label="Cidade"
+                fullWidth
+                onChange ={this.props.changeCity}                              
+              />                          
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -57,6 +57,11 @@ class AddressForm extends Component{
   }
 }
 
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({changeCity},dispatch)
+}
+
+
 function mapStateToProps(state){
   return{
     value: state.field.value
@@ -64,4 +69,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps)(AddressForm);
+export default connect(null,mapDispatchToProps)(AddressForm);
