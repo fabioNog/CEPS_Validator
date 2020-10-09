@@ -15,7 +15,7 @@ const LocationSchema = new mongoose.Schema({
     name: { type: String, required: true },
 })
 
-const CepSchema = new mongoose.Schema({
+const TodoSchema = new mongoose.Schema({
 
     city : { type: String, required: true },
     cep  : { type: String, required: true },
@@ -23,4 +23,4 @@ const CepSchema = new mongoose.Schema({
 
 
 
-module.exports = restful.model('cep', CepSchema)
+module.exports = restful.model('todo', TodoSchema)

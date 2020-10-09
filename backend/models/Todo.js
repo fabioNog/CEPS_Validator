@@ -6,10 +6,10 @@ const todoSchema = new Schema({
     type: String,
     required: 'Cidade Requirida!'
   },
-  cep: {
+  city: {
     type: String,
     required: 'Cidade Requirida!'
   },
 });
 
-mongoose.model('teste', todoSchema);
+mongoose.model('todos', todoSchema);

@@ -1,3 +1,3 @@
 module.exports = {
-  mongoURI: process.env.MONGO_URI
+  mongoURI: "//localhost:5000/todos"
 };
