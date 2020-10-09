@@ -9,8 +9,9 @@ module.exports = app => {
   });
 
   app.post('/api/todos', async (req, res) => {
-    const { name } = req.body;
-    const todo = new Todo({ name, createdAt: Date.now() });
+    const { city} = req.body.city;
+    const { cep} = req.body.cep;
+    const todo = new Todo({ city, cep });
     await todo.save();
 
     res.send(todo);

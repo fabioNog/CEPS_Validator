@@ -21,7 +21,6 @@ import { addTodo } from '../cepCycle/actions/todoActions'
 import { bindActionCreators } from 'redux'
 
 
-
 import { BindActionCreator } from 'redux';
 
 import { connect } from 'react-redux'
@@ -102,7 +101,7 @@ function getStepContent(step) {
   }
 }
 
-function Register(props) {
+function Register(props,{city,cep}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -115,10 +114,9 @@ function Register(props) {
     setActiveStep(activeStep - 1);
   };
 
-  const onFormSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    this.setState(prevState => ({ editing: !prevState.editing }));
-    this.props.updateTodo(this.props.id, this.state.text);
+    this.props.addTodo(this.props.city,this.props.cep);
   };
 
 
@@ -133,6 +131,7 @@ function Register(props) {
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
+
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
             Cadastro de Endereços
@@ -167,11 +166,11 @@ function Register(props) {
                           variant="contained"
                           color="primary"
                           className={classes.button}
-                          onClick={onFormSubmit}
+                          onClick={handleSubmit}
                         >
                           Salvar
                         </Button>)
-                      :                       (
+                      : (
                         <Button
                           variant="contained"
                           color="primary"
@@ -197,8 +196,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 function mapStateToProps(state) {
   return {
-    city: state.city,
-    cep: state.cep
+    city: state.city.value,
+    cep: state.cep.value
   }
 }
 

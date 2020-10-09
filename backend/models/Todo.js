@@ -2,18 +2,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const todoSchema = new Schema({
-  name: {
+  city: {
     type: String,
-    required: 'Name cannot be blank!'
+    required: 'Cidade Requirida!'
   },
-  done: {
-    type: Boolean,
-    default: false
+  cep: {
+    type: String,
+    required: 'Cidade Requirida!'
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
 });
 
 mongoose.model('todos', todoSchema);

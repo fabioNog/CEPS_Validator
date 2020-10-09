@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
-import todos from './todos';
-import currTab from './currTab';
+import todos from './todoIndexReducer';
 
 export default combineReducers({
   todos,

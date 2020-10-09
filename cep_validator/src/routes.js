@@ -4,6 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import cityReducer from './cepCycle/reducers/cityReducer';
 import cepReducer from './cepCycle/reducers/cep_Reducer';
+import todoReducer from './cepCycle/reducers/todoReducer'
 
 import {combineReducers, createStore, applyMiddleware} from 'redux' 
 import promise from 'redux-promise'
@@ -23,7 +24,8 @@ import List from './components/list'
 
 const reducers = combineReducers({
   city: cityReducer,
-  cep: cepReducer    
+  cep: cepReducer,
+  todoReducer    
 }) 
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()

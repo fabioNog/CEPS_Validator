@@ -14,8 +14,8 @@ export const fetchTodos = () => async dispatch => {
   dispatch({ type: FETCH_TODOS, payload: res.data });
 };
 
-export const addTodo = name => async dispatch => {
-  const res = await axios.post('/api/todos', { name });
+export const addTodo = (city,cep) => async dispatch => {
+  const res = await axios.post('/api/todos', { city,cep });
 
   dispatch({ type: ADD_TODO, payload: res.data });
 };
