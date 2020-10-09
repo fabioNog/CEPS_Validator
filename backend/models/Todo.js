@@ -12,4 +12,4 @@ const todoSchema = new Schema({
   },
 });
 
-mongoose.model('todos', todoSchema);
+mongoose.model('teste', todoSchema);

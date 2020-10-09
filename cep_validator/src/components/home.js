@@ -116,7 +116,7 @@ function Register(props,{city,cep}) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    this.props.addTodo(this.props.city,this.props.cep);
+    addTodo(city,cep);
   };
 
 
