@@ -15,10 +15,17 @@ export const fetchTodos = () => async dispatch => {
 };
 
 export const addTodo = (city,cep) => async dispatch => {
-  const res = await axios.post('/api/todos', { city,cep });
-
-  dispatch({ type: ADD_TODO, payload: res.data });
-};
+  const API_URL = "http://localhost:4000/adress/add";
+  const res = await axios.post(API_URL, 
+        { city,cep})
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        /* dispatch({ type: ADD_TODO, payload: res.data }); */
+      };
 
 export const toggleTodo = id => async dispatch => {
   const res = await axios.put(`/api/todos/${id}`);

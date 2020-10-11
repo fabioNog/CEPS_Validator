@@ -21,6 +21,7 @@ import { addTodo } from '../cepCycle/actions/todoActions'
 import { bindActionCreators } from 'redux'
 
 
+
 import { BindActionCreator } from 'redux';
 
 import { connect } from 'react-redux'
@@ -101,7 +102,7 @@ function getStepContent(step) {
   }
 }
 
-function Register(props,{city,cep}) {
+function Register({dispatch,city,cep}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -114,11 +115,11 @@ function Register(props,{city,cep}) {
     setActiveStep(activeStep - 1);
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    addTodo(city,cep);
-  };
 
+  const submit = () => {
+    /* e.preventDefault(); */
+    addTodo(city, cep);
+  };
 
   return (
     <React.Fragment>
@@ -132,7 +133,7 @@ function Register(props,{city,cep}) {
       </AppBar>
       <main className={classes.layout}>
 
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} >
           <Typography component="h1" variant="h4" align="center">
             Cadastro de Endereços
           </Typography>
@@ -166,7 +167,7 @@ function Register(props,{city,cep}) {
                           variant="contained"
                           color="primary"
                           className={classes.button}
-                          onClick={handleSubmit}
+                          onClick={() => dispatch(addTodo(city,cep))}
                         >
                           Salvar
                         </Button>)
@@ -190,9 +191,10 @@ function Register(props,{city,cep}) {
   );
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+/* const mapDispatchToProps = dispatch => bindActionCreators({
   addTodo
-}, dispatch)
+}, dispatch) */
+
 
 function mapStateToProps(state) {
   return {
@@ -201,4 +203,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps)(Register);
