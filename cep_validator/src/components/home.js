@@ -16,8 +16,10 @@ import Review from './Review';
 import { Link } from 'react-router-dom'
 
 
-/* Import my reducers */
+/* Import my actions*/
 import { addTodo } from '../cepCycle/actions/todoActions'
+import {inc,dec,stepChanged} from '../cepCycle/actions/activeActions'
+
 import { bindActionCreators } from 'redux'
 
 
@@ -167,7 +169,7 @@ function Register({dispatch,city,cep}) {
                           variant="contained"
                           color="primary"
                           className={classes.button}
-                          onClick={() => dispatch(addTodo(city,cep))}
+                          onClick={() => dispatch(addTodo(city,cep)),handleNext}
                         >
                           Salvar
                         </Button>)
@@ -191,15 +193,16 @@ function Register({dispatch,city,cep}) {
   );
 }
 
-/* const mapDispatchToProps = dispatch => bindActionCreators({
-  addTodo
-}, dispatch) */
+ const mapDispatchToProps = dispatch => bindActionCreators({
+  inc,dec
+}, dispatch) 
 
 
 function mapStateToProps(state) {
   return {
     city: state.city.value,
-    cep: state.cep.value
+    cep: state.cep.value,
+    number: state.activeReducer.number
   }
 }
 
