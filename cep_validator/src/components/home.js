@@ -104,7 +104,7 @@ function getStepContent(step) {
   }
 }
 
-function Register({dispatch,city,cep,number}) {
+function Register({dispatch,city,cep}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -147,7 +147,7 @@ function Register({dispatch,city,cep,number}) {
             ))}
           </Stepper>
           <React.Fragment>
-            {number === 2 ? (
+            {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
                   Dados Cadastrados com Sucesso
@@ -169,7 +169,7 @@ function Register({dispatch,city,cep,number}) {
                           variant="contained"
                           color="primary"
                           className={classes.button}
-                          onClick={() => dispatch(addTodo(city,cep))}
+                          onClick={() => dispatch(addTodo(city,cep)),handleNext}
                         >
                           Salvar
                         </Button>)
