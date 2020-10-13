@@ -1,6 +1,6 @@
 
 
-const INITIAL_STATE = { value: 'opa'}
+const INITIAL_STATE = { value: 'Faltou a Cidade?'}
 
 export default function(state = INITIAL_STATE,action){
     switch(action.type){
