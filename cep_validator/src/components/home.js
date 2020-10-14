@@ -104,7 +104,7 @@ function getStepContent(step) {
   }
 }
 
-function Register({dispatch,city,cep}) {
+function Register({dispatch,city,cep,number,props}) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -117,6 +117,9 @@ function Register({dispatch,city,cep}) {
     setActiveStep(activeStep - 1);
   };
 
+  const mostrarNumber = (number) => {
+    console.log(number)
+  }
 
   const submit = () => {
     /* e.preventDefault(); */
@@ -169,7 +172,7 @@ function Register({dispatch,city,cep}) {
                           variant="contained"
                           color="primary"
                           className={classes.button}
-                          onClick={() => dispatch(addTodo(city,cep)),handleNext}
+                          onClick={() => dispatch(addTodo(city,cep)),inc}
                         >
                           Salvar
                         </Button>)
